@@ -1,8 +1,10 @@
 #include "monty.h"
+
 /**
  * f_push - implements a stack's push function
  * @stack: stack to be implemented on
  * @line_num: current line number
+ *
  * Return: void
  */
 void f_push(stack_t **stack, unsigned int line_num)
@@ -20,6 +22,7 @@ void f_push(stack_t **stack, unsigned int line_num)
 	/* Check if argument is valid */
 	if (glbs->args == NULL)
 		flag = 1;
+
 	else
 	{
 		for (i = 0; glbs->args[i] != '\0'; ++i)
@@ -35,11 +38,12 @@ void f_push(stack_t **stack, unsigned int line_num)
 		free(new);
 		free_stack(*stack);
 		free_glbs(1);
-		/* push and link new element unto the stack */
-		new->n = atoi(glbs->args);
-		new->next = *stack;
-		new->prev = NULL;
-		if (*stack != NULL)
-			(*stack)->prev = new;
-		*stack = new;
+	}
+	/* push and link new element unto the stack */
+	new->n = atoi(glbs->args);
+	new->next = *stack;
+	new->prev = NULL;
+	if (*stack != NULL)
+		(*stack)->prev = new;
+	*stack = new;
 }

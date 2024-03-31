@@ -14,6 +14,7 @@ void execute(stack_t **stack, unsigned int line_num)
 	/* Define variables and instructions */
 	unsigned int i = 0;
 	instruction_t instructions[] = {
+		{"nop", f_nop},
 		{"add", f_add},
 		{"pop", f_pop},
 		{"swap", f_swap},

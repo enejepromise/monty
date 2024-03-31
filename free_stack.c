@@ -1,7 +1,9 @@
 #include "monty.h"
+
 /**
  * free_stack - frees a doubly linked stack
  * @stack: stack to be freed
+ *
  * Return: void
  */
 void free_stack(stack_t *stack)

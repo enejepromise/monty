@@ -10,7 +10,7 @@
 void f_push(stack_t **stack, unsigned int line_num)
 {
 	/* Create new element */
-	unsigned int i, flag = 0;
+	unsigned int i = 0, flag = 0;
 	stack_t *new = malloc(sizeof(stack_t));
 
 	if (new == NULL)
@@ -25,7 +25,10 @@ void f_push(stack_t **stack, unsigned int line_num)
 
 	else
 	{
-		for (i = 0; glbs->args[i] != '\0'; ++i)
+		/* Handle negatives */
+		if (glbs->args[i] == '-')
+			++i;
+		for (; glbs->args[i] != '\0'; ++i)
 		{
 			if (glbs->args[i] < '0' || glbs->args[i] > '9')
 				flag = 1;

@@ -57,13 +57,19 @@ extern glb_var *glbs;
 void free_glbs(int flag);
 void initialize_globals(void);
 void free_stack(stack_t *stack);
-void f_nop(stack_t **stack, unsigned int line_num);
 void f_add(stack_t **stack, unsigned int line_num);
+void f_div(stack_t **stack, unsigned int line_num);
+void f_mod(stack_t **stack, unsigned int line_num);
+void f_mul(stack_t **stack, unsigned int line_num);
+void f_nop(stack_t **stack, unsigned int line_num);
+void f_sub(stack_t **stack, unsigned int line_num);
 void f_pop(stack_t **stack, unsigned int line_num);
-void f_push(stack_t **stack, unsigned int line_num);
 void f_pall(stack_t **stack, unsigned int line_num);
 void f_pint(stack_t **stack, unsigned int line_num);
+void f_pstr(stack_t **stack, unsigned int line_num);
+void f_push(stack_t **stack, unsigned int line_num);
 void f_swap(stack_t **stack, unsigned int line_num);
+void f_pchar(stack_t **stack, unsigned int line_num);
 void execute(stack_t **stack, unsigned int line_num);
 
 #endif /*MONTY_H*/

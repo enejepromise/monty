@@ -1,19 +1,19 @@
 #include "monty.h"
 
 /**
- * f_add - adds the stack's top two elements
+ * f_sub - subtracts the stack's top element from the second
  * @stack: stack to be implemented on
  * @line_num: current line number
  *
  * Return: void
  */
-void f_add(stack_t **stack, unsigned int line_num)
+void f_sub(stack_t **stack, unsigned int line_num)
 {
-	stack_t *top, *second;
+	stack_t *top = NULL, *second = NULL;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", line_num);
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line_num);
 		free_stack(*stack);
 		free_glbs(1);
 	}
@@ -21,6 +21,6 @@ void f_add(stack_t **stack, unsigned int line_num)
 	top = *stack;
 	second = top->next;
 
-	second->n += top->n;
+	second->n -= top->n;
 	f_pop(stack, line_num);
 }
